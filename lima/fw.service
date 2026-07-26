@@ -1,0 +1,21 @@
+[Unit]
+Description=Aya eBPF Firewall Daemon
+After=network-pre.target
+Wants=network-pre.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/fw-daemon
+Restart=on-failure
+RestartSec=3s
+
+# Limits / BPF Requirements
+LimitMEMLOCK=infinity
+
+# Optional Security Hardening (Uncomment if running unprivileged user with capabilities)
+# User=root
+# CapabilityBoundingSet=CAP_BPF CAP_NET_ADMIN CAP_PERFMON CAP_SYS_RESOURCE
+# AmbientCapabilities=CAP_BPF CAP_NET_ADMIN CAP_PERFMON CAP_SYS_RESOURCE
+
+[Install]
+WantedBy=multi-user.target

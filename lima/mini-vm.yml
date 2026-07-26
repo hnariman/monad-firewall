@@ -1,0 +1,17 @@
+images:
+  - location: "/opt/lima-cache/Arch-Linux-x86_64-cloudimg.qcow2"
+    arch: "x86_64"
+
+
+plain: true
+
+cpus: 2
+memory: "2Gib"
+disk: "4Gib"
+
+
+mounts:
+  - location: "/workspace"
+    writable: true
+
+vmType: "qemu"
