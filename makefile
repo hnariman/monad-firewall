@@ -22,6 +22,10 @@ build:
 		-Z build-std=core
 	cargo build --package monad-firewall-core
 
+get-vm-iso:
+	 curl -L -o lima/Arch-Linux-x86_64-cloudimg.qcow2 \
+		 "https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-cloudimg.qcow2"
+
 vm-start:
 	# @if ! limactl list | grep -q "$(VM_NAME)"; then \
 		#
