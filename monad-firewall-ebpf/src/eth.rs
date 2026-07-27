@@ -84,5 +84,16 @@
 //    else -> we've found rare 802.3 frame and it has different frame structure
 //    (it's rarely seen in modern networks, but still an edge case possible)
 //    https://www.ibm.com/support/pages/ethernet-version-2-versus-ieee-8023-ethernet
-
+//    
+// PS: ethernet frame would also have preambule (7 bytes) + 1 byte delimeter, 
+// but this is something NIC has to handle, so it's out of scope (it's L1 level logic)
+//
+//
+// --- Firewall ---
+// firewall will be able to filter packets starting on L2 as there is EthType available,
+// which already allows to drop malformed or spoofed non-IP EthTypes, which speed is nanoseconds
+// and prevents sk_buffer from getting overwhelmed early on DDOS attacks etc
+//
+// also L2 allows to build strategies around loopback(lo), TUN/TAP, Veth 
+//
 
